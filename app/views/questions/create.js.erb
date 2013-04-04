@@ -1,4 +1,4 @@
-<% if @q.errors.empty? %>
+<% if @question.errors.empty? %>
 	$('.questions').append("<%= j render 'question', :question => @q %>");
 	$('#question_title').val('');
 	$('#question_content').val('');

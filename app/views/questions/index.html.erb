@@ -1,7 +1,7 @@
 <h1>Questions</h1>
 <ul class="questions">
-<% @questions.each do |q| %>
-	<%= render 'question', :question => q %>
+<% @questions.each do |question| %>
+	<%= render 'question', :question => question %>
 <% end %>
 </ul>
 <%= render 'newquestion'%>
