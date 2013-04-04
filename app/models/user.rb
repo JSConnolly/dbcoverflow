@@ -3,11 +3,10 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :name, :password_digest
   validates :email, uniqueness: true
   has_secure_password
+  has_many :questions
+  has_many :answers
 
-  def self.authenticate(email, password_submitted)
-  	user = find_by_email(email)
-  	return user if password_submitted == user.password
-  end
+
    # db table:
    #    t.string :name
    #    t.string :email

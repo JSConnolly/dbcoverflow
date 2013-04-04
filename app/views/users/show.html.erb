@@ -1,2 +1,7 @@
 <h1>Users#show</h1>
-<p>Welcome back, <%= @user.name %>!</p>
+<p>Welcome back, <%= current_user.name %>!</p>
+<p>(your email address is <%= current_user.email %> ;) )</p>
+<%= form_for :user, url: '/logout', method: :delete do |f| %>
+	<%= f.submit "logout"%>
+<% end %>
+

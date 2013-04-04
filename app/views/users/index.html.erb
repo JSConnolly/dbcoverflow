@@ -3,4 +3,6 @@
 <% @users.each do |u| %>
 	<li><%= link_to u.name, u %></li>
 <% end %>
+<% question = Question.new %>
+<%= render 'questions/newquestion', locals: @question = Question.new %>
 </ul>

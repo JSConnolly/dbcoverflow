@@ -1,0 +1,7 @@
+<% if @q.errors.empty? %>
+	$('.questions').append("<%= j render 'question', :question => @q %>");
+	$('#question_title').val('');
+	$('#question_content').val('');
+<% else %>
+	$('.questions').append('<%= j @q.errors.full_messages.join("\n")%>');
+<% end %>
