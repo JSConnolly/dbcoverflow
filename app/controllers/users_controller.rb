@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   def show
     redirect_to login_path and return unless current_user
-    p current_user
     unless current_user == User.find(params[:id])
       flash[:errors] = "You're not authorized to view that..."
       redirect_to user_path(current_user.id) and return

@@ -5,6 +5,7 @@ DbcOverflow::Application.routes.draw do
   match "/login", to: "sessions#create", via: :post
   match "/logout", to: "sessions#destroy", via: :delete, as: 'logout'
   resources :users, :only => [:index, :new, :create, :show]
+  get "/signup", to: 'users#new'
   resources :questions, :only => [:index, :new, :create, :show]
   resources :answers, :only => [:index, :new, :create, :show]
   # The priority is based upon order of creation:

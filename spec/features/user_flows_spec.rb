@@ -10,14 +10,14 @@ describe "UserFlows" do
   													password: Faker::Lorem.word}
 
   	it { should have_content "Sign" }
-  	context "valid submission" do
-  		before do 
+  	
+    context "valid submission" do
+  		
+      before do 
   			fill_in "Name", :with => "Matthew"
   			fill_in "Email", :with => "matthew@rocks.com"
   			fill_in "Password", :with => "Tester1"
   		end
-
-  		it {should_not have_selector("div.errors")}
 
   		it "creates a new user" do
   			expect{ click_button submit_button }.to change(User, :count).by(1)
@@ -27,6 +27,11 @@ describe "UserFlows" do
   			click_button submit_button
   			current_path.should eq(user_path(User.last))
   		end
+
+      it "has no errors" do
+        click_button submit_button
+        should_not have_selector("div.errors")
+      end
   	end
 
   	context "invalid submission" do
@@ -43,54 +48,37 @@ describe "UserFlows" do
   		describe "after submit" do
   			before { click_button submit_button }
 
-  			it {should have_selector "div.errors"}
-  			it {should_not have_content "Welcome"}
+  			it { should have_selector "div.errors" }
+  			it { should_not have_content "Welcome" }
   			it "stays on the users/new page" do
   				current_path.should eq(new_user_path)
   			end
   		end
-
   	end
-
   end
+
 	describe "users index page" do
 		before { visit users_path }
-		it { should have_content "Users"}
+    
+		it { should have_content "Users" }
 	end  
-	describe "users' secret page" do
-		let (:user){ FactoryGirl.create(:user)}
-		before { visit user_path(user.id) }
-		it {should have_content "Welcome"}
+
+	describe "user profile page" do
+		let (:u){ FactoryGirl.create(:user) }
+		before{ login(u) }
+
+		it { should have_content "Welcome" }
 	end
 
-  describe "login" do
-    context "with valid credentials" do
-      before do 
-        User.create :name => "test", 
-                    :email => 'asddeddee@test.com', 
-                    :password=> "Tester1"
-        visit login_path
-        fill_in "Email", :with => "asddeddee@test.com"
-        fill_in "Password", :with => "Tester1"
-        click_button "Sign"
-      end
-      it {should_not have_selector "div.login"}
-    end
-
-    context "with invalid credentials" do
-    end
-  end
 
   describe "logout" do
-    context "when logout clicked" do
-      before do
-        u = User.create :name => "test", 
-                    :email => 'asddeddee@test.com', 
-                    :password=> "Tester1"
-        visit user_path(u.id)
-        click_button "logout"
-      end
-      it {should_not have_content "user!"}
+    let (:u){ FactoryGirl.create(:user) }
+    before do
+      login(u)
+      visit user_path(u.id)
+      click_on "logout"
     end
+
+    it { should_not have_content "user!" }
   end
 end
