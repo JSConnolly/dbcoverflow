@@ -1,4 +1,4 @@
-<%= @question.title %>
+<h1><%= @question.title %><span id="upvote">&#8593;</span><span id="downvote">&#8595;</span></h1>
 <%= @question.content %>
 <%= render 'answers/new_answer', :answer => Answer.new %>
 <ul class="answers">
