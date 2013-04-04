@@ -1,7 +1,6 @@
-% if @answer.errors.empty? %>
-	$('.answers').append("<%= j render 'answer', :question => @q %>");
-	$('#question_title').val('');
-	$('#question_content').val('');
+<% if @answer.errors.empty? %>
+	$('.answers').append("<%= j render 'answer', :answer => @answer %>");
+	$('#answer_content').val('');
 <% else %>
-	$('.questions').append('<%= j @q.errors.full_messages.join("\n")%>');
+	$('.answers').append('<%= j @answer.errors.full_messages.join("\n")%>');
 <% end %>
