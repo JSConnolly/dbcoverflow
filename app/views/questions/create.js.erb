@@ -1,8 +1,7 @@
-debugger;
 <% if @question.errors.empty? %>
 	$('.questions').append("<%= j render 'question', :question => @question %>");
 	$('#question_title').val('');
 	$('#question_content').val('');
 <% else %>
-	$('.questions').append('<%= j @q.errors.full_messages.join("\n")%>');
+	$('.questions').append('<%= j @question.errors.full_messages.join("\n")%>');
 <% end %>

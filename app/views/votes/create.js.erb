@@ -1,0 +1,8 @@
+<% if @vote.errors.empty? %>
+  $(this).addClass("disabled");
+  $(this).addClass("selected");
+  $(this).siblings.find('input').addClass("disabled");
+
+<% else %>
+  $(this).append('<%= j @question.errors.full_messages.join("\n")%>');
+<% end %>

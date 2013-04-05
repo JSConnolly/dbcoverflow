@@ -6,6 +6,7 @@ class Vote < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
   belongs_to :user
 
+
       # t.integer :points
       # t.string :voteable_type
       # t.integer :voteable_id

@@ -9,6 +9,7 @@ DbcOverflow::Application.routes.draw do
   get "/signup", to: 'users#new'
   resources :questions, :only => [:index, :new, :create, :show]
   resources :answers, :only => [:index, :new, :create, :show]
+  match '/votes', to: 'votes#create', via: :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
