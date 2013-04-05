@@ -9,10 +9,8 @@ class AnswersController < ApplicationController
 
 	def create
 		@answer = Answer.new params[:answer].merge( user_id: current_user.id )
-		if @answer.save
-			@answer
-		else
-		end
+	  @answer.save
+		@answer
 	end
 
 	def show

@@ -11,9 +11,9 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
-		@q = Question.new( params[:question] )
-		@q.save
-		respond_with @q
+		@question = Question.new( params[:question] )
+		@question.save
+		@question
 
 			# respond_to do |format|
 			# 	if @q.save

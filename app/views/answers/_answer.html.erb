@@ -1,2 +1,3 @@
 <li><%= answer.content %><br>
-		<small>author: <%= answer.user.name %></small></li>
+		<small>author: <%= answer.user.name %></small><br>
+    <%= render "shared/vote_form", id: answer.id, type: 'answer' %></li>

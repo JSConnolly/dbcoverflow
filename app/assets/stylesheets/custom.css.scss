@@ -90,7 +90,9 @@ p {
 }
 
 /* forms */
-
+form {
+  position: relative;
+}
 input, textarea, select, .uneditable-input {
   border: 1px solid  #bbb ;
   width: 100%;
@@ -121,3 +123,22 @@ input {
   width:50%;
   margin-left: 25px;
 }
+
+/*
+input.upvote_button {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-bottom: 10px solid black;
+}
+
+input.downvote_button {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-top: 10px solid black;
+} */

@@ -1,5 +1,5 @@
 <div id="answer_form">
-<%= form_for(answer, url: answers_path, remote: true) do |f| %>
+<%= form_for answer, url: answers_path, remote: true do |f| %>
 	<%= f.label :content, "Answer:" %>
 	<%= f.text_field :content %>
 	<%= f.hidden_field :question_id, value: @question.id %>

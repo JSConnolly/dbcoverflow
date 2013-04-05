@@ -1,0 +1,15 @@
+<%= form_for :vote, remote: true, class: "vote" do |f| %>
+  <%= hidden_field_tag :points, 1 %>
+  <%= hidden_field_tag :voteable_type, type %>
+  <%= hidden_field_tag :voteable_id, id %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= f.submit '+1', class: "upvote_button" %>
+<% end %>
+
+<%= form_for :vote, remote: true, class: "vote" do |f| %>
+  <%= hidden_field_tag :points, -1 %>
+  <%= hidden_field_tag :voteable_type, type %>
+  <%= hidden_field_tag :voteable_id, id %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= f.submit '-1', class: "downvote_button" %>
+<% end %>

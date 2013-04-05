@@ -26,6 +26,4 @@ describe User do
   		expect{ invalid_user.save! }.to raise_error(ActiveRecord::RecordInvalid)
   	end
   end
-
-
 end
