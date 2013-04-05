@@ -4,8 +4,8 @@ describe "AuthenticationPages" do
  subject { page }
 
  describe "login page" do
- 	before {visit login_path}
+ 	before { visit login_path }
 
- 	it {should have_content "Log"}
+ 	it { should have_content "Log" }
  end
 end

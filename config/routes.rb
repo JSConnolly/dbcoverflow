@@ -1,6 +1,7 @@
 DbcOverflow::Application.routes.draw do
   
   # resources :sessions, only: [:new, :create, :destroy]
+  root to: 'questions#index'
   get "/login", to: "sessions#new"
   match "/login", to: "sessions#create", via: :post
   match "/logout", to: "sessions#destroy", via: :delete, as: 'logout'

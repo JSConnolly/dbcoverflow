@@ -1,6 +1,8 @@
 <%= @question.title %>
 <%= @question.content %>
-<%= render 'answers/new_answer', :answer => Answer.new %>
+<% if current_user %>
+  <%= render 'answers/new_answer', :answer => Answer.new %>
+<% end %>
 <ul class="answers">
 	<% @question.answers.each do |answer| %>
 		<%= render "answers/answer", answer: answer %>

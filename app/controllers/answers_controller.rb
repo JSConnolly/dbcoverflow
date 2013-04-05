@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
 	respond_to :html, :js
-	def index
-			
+	def index	
 	end
 
 	def new
@@ -9,8 +8,11 @@ class AnswersController < ApplicationController
 	end
 
 	def create
-		@answer = Answer.create params[:answer].merge( user_id: current_user.id )
-		respond_with @answer
+		@answer = Answer.new params[:answer].merge( user_id: current_user.id )
+		if @answer.save
+			@answer
+		else
+		end
 	end
 
 	def show

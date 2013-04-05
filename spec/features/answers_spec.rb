@@ -2,13 +2,14 @@ require 'spec_helper'
 
 describe "answers" do
   subject { page }
-  let(:user){ FactoryGirl.create(:user) }
+  
   let(:submit_button){ "Submit" }
-  before(:each) do
+  let(:user){ FactoryGirl.create(:user) }
+  
+  before do
     login(user)
     question = FactoryGirl.create(:question)
     visit question_path(question.id)
-
   end
 
   context "with valid entry", js: true do
